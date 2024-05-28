@@ -46,11 +46,14 @@ public class StudentService implements StudentServicePort {
                             return persistencePort.save(saveStudent);
                         }
 
-                ).orElseThrow();
+                ).orElseThrow(StudentNotFoundException::new);
     }
 
     @Override
     public void deleteById(Long id) {
-
+        if (persistencePort.findById(id).isEmpty()) {
+            throw new StudentNotFoundException();
+        }
+        persistencePort.deleteById(id);
     }
 }
