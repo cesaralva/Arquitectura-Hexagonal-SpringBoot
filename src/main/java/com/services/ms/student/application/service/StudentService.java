@@ -5,6 +5,7 @@ import com.services.ms.student.application.ports.output.StudentPersistencePort;
 import com.services.ms.student.domain.exception.StudentNotFoundException;
 import com.services.ms.student.domain.model.Student;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class StudentService implements StudentServicePort {
+
 
     private final StudentPersistencePort persistencePort;
 
